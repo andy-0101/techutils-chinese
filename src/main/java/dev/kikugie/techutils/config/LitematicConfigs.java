@@ -1,105 +1,79 @@
 package dev.kikugie.techutils.config;
 
 import com.google.common.collect.ImmutableList;
+import dev.kikugie.techutils.Reference;
 import dev.kikugie.techutils.feature.preview.interaction.InteractionProfiles;
 import fi.dy.masa.malilib.config.options.*;
 import fi.dy.masa.malilib.hotkeys.KeybindSettings;
 
-public class LitematicConfigs extends Configs.BaseConfigs {
+public class LitematicConfigs extends Configs.BaseConfigs
+{
+	private static final String LITEMATIC_KEY = Reference.MOD_ID+".config.litematic";
+
 	public static final ConfigBoolean RENDER_PREVIEW = new ConfigBoolean(
-			"techutils.config.litematica.render_preview",
-			true,
-			"Show 3D render of selected litematic in Load Schematics menu\n(Works only for .litematic files)"
-		);
+			"renderpreview",
+			true
+	).apply(LITEMATIC_KEY);
 	public static final ConfigBoolean OVERRIDE_PREVIEW = new ConfigBoolean(
 			"overridePreview",
-			false,
-			"Show 3D render even if litematic has its own preview"
-	);
+			false
+	).apply(LITEMATIC_KEY);
 	public static final ConfigOptionList RENDER_ROTATION_MODE = new ConfigOptionList(
-			"rotationMode", InteractionProfiles.DRAG,
-			"""
-			Configure model rotation mode:
-			- DRAG: drag left mouse button in the viewport to rotate the model, drag right mouse button to pan the camera and scroll to zoom;
-			- POSITION: rotation follows horizontal mouse position on the screen;
-			- SPIN: rotate model at constant speed."""
-	);
+			"rotationMode",
+			InteractionProfiles.DRAG
+	).apply(LITEMATIC_KEY);
 	public static final ConfigDouble ROTATION_FACTOR = new ConfigDouble(
 			"rotationFactor",
 			1,
 			0.1,
-			10,
-			"Set model rotation sensitivity"
-	);
+			10
+	).apply(LITEMATIC_KEY);
 	public static final ConfigInteger RENDER_SLANT = new ConfigInteger(
 			"renderSlant",
 			30,
 			0,
-			60,
-			"Set model vertical slant"
-	);
+			60
+	).apply(LITEMATIC_KEY);
 	public static final ConfigHotkey ROTATE_PLACEMENT = new ConfigHotkey(
 			"rotatePlacement",
-			"R",
-			"Rotate selected placement clockwise"
-	);
+			""
+	).apply(LITEMATIC_KEY);
 	public static final ConfigHotkey MIRROR_PLACEMENT = new ConfigHotkey(
 			"mirrorPlacement",
-			"Y",
-			"Cycle through selected placement's mirroring options"
-	);
+			""
+	).apply(LITEMATIC_KEY);
 	public static final ConfigBooleanHotkeyed INVENTORY_SCREEN_OVERLAY = new ConfigBooleanHotkeyed(
 			"inventoryScreenOverlay",
 			true,
 			"I,O",
-			KeybindSettings.GUI,
-			"""
-		Show layout of the container according to the litematic placement.
-		Item colors match your placement block colors. By default its:
-		- Light blue: missing item;
-		- Orange: mismatched amount or nbt data;
-		- Magenta: extra item that shouldn't be present;
-		- Red: wrong item type."""
-	);
+			KeybindSettings.GUI
+	).apply(LITEMATIC_KEY);
 	public static final ConfigHotkey REFRESH_MATERIAL_LIST = new ConfigHotkey(
 			"refreshMaterialList",
-			"",
-			"""
-		Refreshes active Litematica material list.
-		§7This can be used in combination with layered lists to update the HUD when changing the active layer."""
-	);
+			""
+	).apply(LITEMATIC_KEY);
 	public static final ConfigBooleanHotkeyed EASY_PLACE_FULL_BLOCKS = new ConfigBooleanHotkeyed(
 			"easyPlaceFullBlocks",
 			false,
-			"",
-			"""
-		Treat all blocks as full cubes when using Litematica's easy place feature.
-		§7Useful for placing blocks with small hitboxes like buttons, chains, fences, etc."""
-	);
+			""
+	).apply(LITEMATIC_KEY);
 	public static final ConfigBooleanHotkeyed VERIFY_ITEM_COMPONENTS = new ConfigBooleanHotkeyed(
 			"verifyItemComponents",
 			false,
 			"",
-			KeybindSettings.GUI,
-			"""
-		Make the inventory verifier enforce exact item component matches.
-		§7Also adds the present components to the lore!"""
-	);
+			KeybindSettings.GUI
+	).apply(LITEMATIC_KEY);
 	public static final ConfigBooleanHotkeyed REPLACE_ITEM_PREDICATES_WITH_PLACEHOLDERS = new ConfigBooleanHotkeyed(
 			"replaceItemPredicatesWithPlaceholders",
 			false,
-			"",
-			"""
-		When loading a schematic, replaces each Item Predicate with its stored placeholder, if present."""
-	);
+			""
+	).apply(LITEMATIC_KEY);
 	public static final ConfigBooleanHotkeyed FORCE_SCHEMATIC_ITEM_OVERLAY = new ConfigBooleanHotkeyed(
 			"forceSchematicItemOverlay",
 			false,
 			"",
-			KeybindSettings.GUI,
-			"""
-		Overwrite each slot in the opened container to show the schematic item instead of the real one."""
-	);
+			KeybindSettings.GUI
+	).apply(LITEMATIC_KEY);
 
 	public LitematicConfigs() {
 		super(ImmutableList.of(

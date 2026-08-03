@@ -66,6 +66,5 @@
     "techutils.config.misc.comment.giveFullInv": "Give full inventory of an item with following rules:\n- Main hand: item; Off hand: none; Result: shulker box of item.\n- Main hand: item; Off hand: container; Result: container of item.\n- Main hand: item; Off hand: bundle; Result: bundle of item * config.\n- Main hand: empty shulker box; Off hand: none: Result: chest of stacked boxes.\n- Main hand: empty shulker box; Off hand: container; Result: container of stacked boxes.\n- Main hand: shulker box; Off hand: none: Result: chest of full boxes.\n- Main hand: shulker box; Off hand: container; Result: container of full boxes.",
     "techutils.config.misc.comment.bundleFill": "Amount of stacks to put in a bundle when using giveFullInv feature",
     "techutils.config.misc.comment.fillSafety": "Restrict nested containers to prevent crashing yourself.\nHere be cats and scratches!",
-    "techutils.config.misc.comment.requestTimeout": "Time in game ticks before request is considered failed",
-    "comment" : "1111"
+    "techutils.config.misc.comment.requestTimeout": "Time in game ticks before request is considered failed"
 }

@@ -1,17 +1,20 @@
 package dev.kikugie.techutils.config;
 
 import com.google.common.collect.ImmutableList;
+import dev.kikugie.techutils.Reference;
 import fi.dy.masa.malilib.config.options.ConfigBoolean;
 import fi.dy.masa.malilib.config.options.ConfigBooleanHotkeyed;
 import fi.dy.masa.malilib.config.options.ConfigHotkey;
 import fi.dy.masa.malilib.config.options.ConfigInteger;
 
-public class MiscConfigs extends Configs.BaseConfigs {
+public class MiscConfigs extends Configs.BaseConfigs
+{
+	private static final String MISC_KEY = Reference.MOD_ID+".config.misc";
+
 	public static final ConfigHotkey OPEN_CONFIG = new ConfigHotkey(
 			"openConfig",
-			"U,C",
-			"Opens this screen if none other is open"
-	);
+			"U,C"
+	).apply(MISC_KEY);
 	public static final ConfigBooleanHotkeyed COMPACT_SCOREBOARD = new ConfigBooleanHotkeyed(
 			"compactScoreboard",
 			false,
@@ -19,7 +22,7 @@ public class MiscConfigs extends Configs.BaseConfigs {
 			"""
 		Show scoreboard values in compact notation.
 		For example: 123456 -> 123.4K"""
-	);
+	).apply(MISC_KEY);
 	public static final ConfigHotkey GIVE_FULL_INV = new ConfigHotkey(
 			"giveFullInv",
 			"G",
@@ -33,7 +36,7 @@ public class MiscConfigs extends Configs.BaseConfigs {
 		- Main hand: shulker box; Off hand: none: Result: chest of full boxes.
 		- Main hand: shulker box; Off hand: container; Result: container of full boxes.
 		"""
-	);
+	).apply(MISC_KEY);
 	public static final ConfigInteger BUNDLE_FILL = new ConfigInteger(
 			"bundleFill",
 			1,
@@ -41,19 +44,19 @@ public class MiscConfigs extends Configs.BaseConfigs {
 			100,
 			true,
 			"Amount of stacks to put in a bundle when using giveFullInv feature"
-	);
+	).apply(MISC_KEY);
 	public static final ConfigBoolean FILL_SAFETY = new ConfigBoolean(
 			"fillSafety",
 			true,
 			"""
 		Restrict nested containers to prevent crashing yourself.
 		Here be cats and scratches!"""
-	);
+	).apply(MISC_KEY);
 	public static final ConfigHotkey SCAN_INVENTORY = new ConfigHotkey(
 			"scanInventory",
 			"I",
 			""
-	);
+	).apply(MISC_KEY);
 	public static final ConfigInteger REQUEST_TIMEOUT = new ConfigInteger(
 			"requestTimeout",
 			60,
@@ -61,7 +64,7 @@ public class MiscConfigs extends Configs.BaseConfigs {
 			1000,
 			false,
 			"Time in game ticks before request is considered failed"
-	);
+	).apply(MISC_KEY);
 
 	public MiscConfigs() {
 		super(ImmutableList.of(
